@@ -1,0 +1,12 @@
+name: unit_convert
+description: Convert easily between different units
+version: 0.1.0
+homepage: null
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+
+dev_dependencies:
+  test: ^1.15.7
