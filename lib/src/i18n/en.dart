@@ -1,5 +1,6 @@
 const en = {
   'temperature': {
+    'temperature': 'Temperature',
     'celsius': 'Celsius',
     'fahrenheit': 'Fahrenheit',
     'kelvin': 'Kelvin',
@@ -8,6 +9,7 @@ const en = {
     'triple_point_of_water': 'Triple Point of Water',
   },
   'length': {
+    'length': 'Length',
     // Metrical common
     'kilometer': 'Kilometer',
     'meter': 'Meter',
@@ -84,6 +86,7 @@ const en = {
     'caliber': 'Caliber',
   },
   'time': {
+    'time': 'Time',
     'attosecond': 'Attosecond',
     'femtosecond': 'Femtosecond',
     'picosecond': 'Picosecond',
@@ -118,7 +121,38 @@ const en = {
     'shake': 'Shake',
     'plank_time': 'Plank Time',
   },
+  'power': {
+    'power': 'Power',
+    'exawatt': 'Exawatt',
+    'petawatt': 'Petawatt',
+    'terawatt': 'Terawatt',
+    'gigawatt': 'Gigawatt',
+    'megawatt': 'Megawatt',
+    'kilowatt': 'Kilowatt',
+    'hectowatt': 'Hectowatt',
+    'dekawatt': 'Dekawatt',
+    'watt': 'Watt',
+    'deciwatt': 'Deciwatt',
+    'centiwatt': 'Centiwatt',
+    'milliwatt': 'Milliwatt',
+    'microwatt': 'Microwatt',
+    'nanowatt': 'Nanowatt',
+    'picowatt': 'Picowatt',
+    'femtowatt': 'Femtowatt',
+    'attowatt': 'Attowatt',
+    'horse_power': 'Horsepower',
+    'horse_power_metric': 'Horsepower (Metric)',
+    'horse_power_electric': 'Horsepower (Electric)',
+    'pferdestarke': 'Pferdestärke',
+    'kcal_hour': 'Kilocalories per Hour',
+    'kcal_minute': 'Kilocalories per Minute',
+    'kcal_second': 'Kilocalories per Second',
+    'cal_hour': 'Calories per Hour',
+    'cal_minute': 'Calories per Minute',
+    'cal_second': 'Calories per Second',
+  },
   'pressure': {
+    'pressure': 'Pressure',
     'bar': 'Bar',
     'millibar': 'Millibar',
     'microbar': 'Microbar',
@@ -160,6 +194,7 @@ const en = {
     'foot_water_60_deg': 'Foot Water (60°F)',
   },
   'angle': {
+    'angle': 'Angle',
     'degree': 'Degree',
     'radian': 'Radian',
     'grad': 'Grad',
@@ -176,6 +211,7 @@ const en = {
     'sextant': 'Sextant',
   },
   'number': {
+    'number': 'Numbers',
     'binary': 'Binary',
     'octal': 'Octal',
     'decimal': 'Decimal',
@@ -183,6 +219,7 @@ const en = {
     'base': 'Base-{}',
   },
   'storage': {
+    'storage': 'Digital Storage',
     'bit': 'Bit',
     'nibble': 'Nibble',
     'byte': 'Byte',

@@ -13,7 +13,7 @@ const foot = LengthUnit.foot;
 const inch = LengthUnit.nanometer;
 const nauticalMile = LengthUnit.nauticalMile;
 
-class LengthConverter extends NumericalConverter {
+class LengthConverter extends RatioConverter {
   const LengthConverter._(String id, double factor, [String symbol])
       : super(id, r: factor, s: symbol);
 

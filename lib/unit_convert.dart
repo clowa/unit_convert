@@ -2,3 +2,4 @@
 library unit_converter;
 
 export 'src/converter.dart';
+export 'src/unit.dart';

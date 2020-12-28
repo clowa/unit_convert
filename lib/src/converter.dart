@@ -1,3 +1,6 @@
+import 'package:meta/meta.dart';
+
+import 'converters/converters.dart';
 import 'i18n/i18n.dart';
 
 export 'converters/converters.dart';
@@ -54,32 +57,43 @@ abstract class Converter<T> {
   int get hashCode => id.hashCode;
 }
 
-abstract class NumericalConverter extends Converter<double> {
+abstract class RatioConverter extends Converter<double> {
   final double ratio;
-  final ConversionFn forward;
-  final ConversionFn backward;
-  const NumericalConverter(
+  const RatioConverter(
     String id, {
-    double r,
-    ConversionFn f,
-    ConversionFn b,
+    @required double r,
     String s,
-  })  : assert(r != null || (f != null && b != null)),
-        ratio = r,
-        forward = f,
-        backward = b,
+  })  : ratio = r,
         super(
           id,
           symbol: s,
         );
 
   double to(Converter<double> other, double value) {
-    final o = typeCheckConverter<NumericalConverter>(other);
-    final base = backward?.call(value) ?? (value * ratio);
-    return o.forward?.call(base) ?? (base / o.ratio);
+    final o = typeCheckConverter<RatioConverter>(other);
+    return value * (ratio / o.ratio);
+  }
+}
+
+abstract class CustomConverter extends Converter<double> {
+  final ConversionFn forward;
+  final ConversionFn reverse;
+  CustomConverter(
+    String id, {
+    String s,
+    @required ConversionFn f,
+    @required ConversionFn r,
+  })  : forward = f,
+        reverse = r,
+        super(id, symbol: s);
+
+  double to(Converter<double> other, double value) {
+    final o = typeCheckConverter<CustomConverter>(other);
+    return o.forward(reverse(value));
   }
 }
 
 abstract class StringConverter extends Converter<String> {
   const StringConverter(String id, {String symbol}) : super(id, symbol: symbol);
 }
+

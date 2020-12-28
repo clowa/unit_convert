@@ -3,7 +3,7 @@ import '../converter.dart';
 const degree = AngleUnit.degree;
 const radian = AngleUnit.radian;
 
-class AngleConverter extends NumericalConverter {
+class AngleConverter extends RatioConverter {
   const AngleConverter._(String id, String symbol, double ratio)
       : super(id, s: symbol, r: ratio);
 

@@ -21,7 +21,7 @@ const standardAtmosphere = PressureUnit.standardAtmosphere;
 
 const torr = PressureUnit.torr;
 
-class PressureConverter extends NumericalConverter {
+class PressureConverter extends RatioConverter {
   const PressureConverter._(String id, String symbol, double ratio)
       : super(id, s: symbol, r: ratio);
 

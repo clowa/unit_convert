@@ -16,7 +16,7 @@ const picowatt = PowerUnit.picowatt;
 const femtowatt = PowerUnit.femtowatt;
 const attowatt = PowerUnit.attowatt;
 
-class PowerConverter extends NumericalConverter {
+class PowerConverter extends RatioConverter {
   const PowerConverter._(String id, String symbol, double ratio)
       : super(id, s: symbol, r: ratio);
 
@@ -53,10 +53,72 @@ class PowerUnit {
       PowerConverter._('horsepower_electric', 'hp', 735.49875);
   static const pferdestarke = PowerConverter._('pferdestarke', 'PS', 735.49875);
 
-  static const kCalorieHour = PowerConverter._('kcal_hour', 'kcal/h', 1.1622222222);
-  static const kCalorieMinute = PowerConverter._('kcal_minute', 'kcal/m', 69.733333333);
-  static const kCalorieSecond = PowerConverter._('kcal_second', 'kcal/s', 4184);
-  static const calorieHour = PowerConverter._('cal_hour', 'cal/h', 0.0011622222);
-  static const calorieMinute = PowerConverter._('cal_minute', 'cal/m', 0.0697333333);
-  static const calorieSecond = PowerConverter._('cal_second', 'cal/s', 4.184);
+  static const kiloCaloriesPerHour =
+      PowerConverter._('kcal_hour', 'kcal/h', 1.1622222222);
+  static const kiloCaloriesPerMinute =
+      PowerConverter._('kcal_minute', 'kcal/m', 69.733333333);
+  static const kiloCaloriesPerSecond = PowerConverter._('kcal_second', 'kcal/s', 4184);
+  static const caloriesPerHour = PowerConverter._('cal_hour', 'cal/h', 0.0011622222);
+  static const caloriesPerMinute = PowerConverter._('cal_minute', 'cal/m', 0.0697333333);
+  static const caloriesPerSecond = PowerConverter._('cal_second', 'cal/s', 4.184);
+
+  static const common = [
+    exawatt,
+    petawatt,
+    terawatt,
+    gigawatt,
+    megawatt,
+    kilowatt,
+    hectowatt,
+    dekawatt,
+    watt,
+    deciwatt,
+    centiwatt,
+    milliwatt,
+    microwatt,
+    nanowatt,
+    picowatt,
+    femtowatt,
+    attowatt,
+    horsepower,
+    horsepowerMetric,
+    horsepowerElectric,
+    pferdestarke,
+    kiloCaloriesPerHour,
+    kiloCaloriesPerMinute,
+    kiloCaloriesPerSecond,
+    caloriesPerHour,
+    caloriesPerMinute,
+    caloriesPerSecond,
+  ];
+
+  static const units = [
+    exawatt,
+    petawatt,
+    terawatt,
+    gigawatt,
+    megawatt,
+    kilowatt,
+    hectowatt,
+    dekawatt,
+    watt,
+    deciwatt,
+    centiwatt,
+    milliwatt,
+    microwatt,
+    nanowatt,
+    picowatt,
+    femtowatt,
+    attowatt,
+    horsepower,
+    horsepowerMetric,
+    horsepowerElectric,
+    pferdestarke,
+    kiloCaloriesPerHour,
+    kiloCaloriesPerMinute,
+    kiloCaloriesPerSecond,
+    caloriesPerHour,
+    caloriesPerMinute,
+    caloriesPerSecond,
+  ];
 }

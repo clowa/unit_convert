@@ -17,7 +17,7 @@ const millenium = TimeUnit.millenium;
 
 const fortnight = TimeUnit.fortnight;
 
-class TimeConverter extends NumericalConverter {
+class TimeConverter extends RatioConverter {
   const TimeConverter._(String id, String symbol, double ratio)
       : super(id, s: symbol, r: ratio);
 

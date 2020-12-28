@@ -7,8 +7,7 @@ import 'package:unit_convert/unit_convert.dart';
 export 'package:test/test.dart';
 export 'package:unit_convert/unit_convert.dart';
 
-void approx(
-    NumericalConverter from, NumericalConverter to, double value, double expected) {
+void approx(Converter<double> from, Converter<double> to, double value, double expected) {
   expect(roundToPrecision(convert(from, to, value), 5), equals(expected));
 }
 

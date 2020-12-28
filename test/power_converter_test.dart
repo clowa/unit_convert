@@ -6,5 +6,5 @@ void main() {
   test('Pferdestärke to Kilowatt',
       () => approx(PowerUnit.pferdestarke, kilowatt, 1, 0.7355));
   test('Kilocalorie/Hour to Kilocalorie/Minute',
-      () => approx(PowerUnit.kCalorieHour, PowerUnit.kCalorieMinute, 1, 0.01667));
+      () => approx(PowerUnit.kiloCaloriesPerHour, PowerUnit.kiloCaloriesPerMinute, 1, 0.01667));
 }

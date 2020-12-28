@@ -62,4 +62,37 @@ class NumberBase {
   static const base64 = NumberConverter.radix(64);
   static const base128 = NumberConverter.radix(128);
   static const base256 = NumberConverter.radix(256);
+
+  static const common = [
+    binary,
+    octal,
+    decimal,
+    hexadecimal,
+  ];
+
+  static const units = [
+    binary,
+    octal,
+    decimal,
+    hexadecimal,
+    base2,
+    base3,
+    base4,
+    base5,
+    base6,
+    base7,
+    base8,
+    base9,
+    base10,
+    base11,
+    base12,
+    base13,
+    base14,
+    base15,
+    base16,
+    base32,
+    base64,
+    base128,
+    base256,
+  ];
 }

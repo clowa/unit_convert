@@ -25,7 +25,7 @@ const cd80Minute = StorageUnit.cd80Minute;
 
 const dvd = StorageUnit.dvd;
 
-class StorageConverter extends NumericalConverter {
+class StorageConverter extends RatioConverter {
   const StorageConverter._(String id, String symbol, double ratio)
       : super(id, s: symbol, r: ratio);
 

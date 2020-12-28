@@ -4,9 +4,9 @@ final kelvin = TemperatureUnit.kelvin;
 final celsius = TemperatureUnit.celsius;
 final fahrenheit = TemperatureUnit.fahrenheit;
 
-class TemperatureConverter extends NumericalConverter {
-  TemperatureConverter._(String id, String symbol, ConversionFn f, ConversionFn b)
-      : super(id, s: symbol, f: f, b: b);
+class TemperatureConverter extends CustomConverter {
+  TemperatureConverter._(String id, String symbol, ConversionFn f, ConversionFn r)
+      : super(id, s: symbol, f: f, r: r);
 
   @override
   String get category => 'temperature';
@@ -58,5 +58,5 @@ class TemperatureUnit {
   );
 
   static final common = [celsius, fahrenheit, kelvin];
-  static final unit = [celsius, fahrenheit, kelvin, rankine, reaumur, triplePointOfWater];
+  static final units = [celsius, fahrenheit, kelvin, rankine, reaumur, triplePointOfWater];
 }
