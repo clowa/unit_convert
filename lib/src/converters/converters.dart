@@ -13,3 +13,4 @@ export 'storage_converter.dart';
 export 'temperature_converter.dart';
 export 'time_converter.dart';
 export 'volume_converter.dart';
+export 'weight_converter.dart';

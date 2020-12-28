@@ -25,6 +25,7 @@ class Units {
     ...TemperatureUnit.units,
     ...TimeUnit.units,
     ...VolumeUnit.units,
+    ...WeightUnit.units,
   ];
 
   static final common = [
@@ -42,5 +43,6 @@ class Units {
     ...TemperatureUnit.common,
     ...TimeUnit.common,
     ...VolumeUnit.common,
+    ...WeightUnit.common,
   ];
 }

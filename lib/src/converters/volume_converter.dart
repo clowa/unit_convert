@@ -2,7 +2,6 @@ import '../converter.dart';
 
 const cubicMillimeter = VolumeUnit.cubicMillimeter;
 const cubicCentimeter = VolumeUnit.cubicCentimeter;
-const cc = VolumeUnit.cc;
 const cubicMeter = VolumeUnit.cubicMeter;
 const cubicKilometer = VolumeUnit.cubicKilometer;
 
@@ -46,7 +45,6 @@ class VolumeUnit {
 
   static const cubicMillimeter = VolumeConverter._('cubic_millimeter', 'mm^3', 1E-9);
   static const cubicCentimeter = VolumeConverter._('cubic_centimeter', 'cm^3', 1E-6);
-  static const cc = VolumeConverter._('cc', 'cm^3', 1E-6);
   static const cubicMeter = VolumeConverter._('cubic_meter', 'm^3', 1.0);
   static const cubicKilometer = VolumeConverter._('cubic_kilometer', 'km^3', 1E+9);
 
@@ -110,7 +108,7 @@ class VolumeUnit {
   static const dram = VolumeConverter._('dram', 'dr', 0.0000036967);
 
   static const drop = VolumeConverter._('drop', null, 5E-8);
-  static const earthsVolume = VolumeConverter._('earths_volume', null, 1.082999999E+21);
+  static const earthVolume = VolumeConverter._('earths_volume', null, 1.082999999E+21);
 
   static const common = [
     liter,
@@ -200,6 +198,6 @@ class VolumeUnit {
     drop,
     tonRegister,
     dram,
-    earthsVolume,
+    earthVolume,
   ];
 }
