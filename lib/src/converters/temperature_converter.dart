@@ -8,7 +8,8 @@ class TemperatureConverter extends NumericalConverter {
   TemperatureConverter._(String id, String symbol, ConversionFn f, ConversionFn b)
       : super(id, s: symbol, f: f, b: b);
 
-  String get name => Converter.i18n['temperature'][id] ?? id;
+  @override
+  String get category => 'temperature';
 }
 
 class TemperatureUnit {

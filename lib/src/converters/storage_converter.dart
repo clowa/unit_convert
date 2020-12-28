@@ -30,7 +30,7 @@ class StorageConverter extends NumericalConverter {
       : super(id, s: symbol, r: ratio);
 
   @override
-  String get name => Converter.i18n['storage'][id] ?? id;
+  String get category => 'storage';
 }
 
 class StorageUnit {

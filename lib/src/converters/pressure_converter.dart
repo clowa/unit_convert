@@ -26,7 +26,7 @@ class PressureConverter extends NumericalConverter {
       : super(id, s: symbol, r: ratio);
 
   @override
-  String get name => Converter.i18n['pressure'][id] ?? id;
+  String get category => 'pressure';
 }
 
 class PressureUnit {

@@ -1,6 +1,6 @@
 import 'i18n/i18n.dart';
 
-export 'conversions/conversions.dart';
+export 'converters/converters.dart';
 
 T convert<T>(Converter<T> from, Converter<T> to, T value) => from(to, value);
 
@@ -23,7 +23,8 @@ abstract class Converter<T> {
 
   static Map i18n = en;
 
-  String get name;
+  String get name => i18n[category][id] ?? id;
+  String get category;
 
   T call(Converter<T> other, T value) => to(other, value);
   T to(Converter<T> other, T value);

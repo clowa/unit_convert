@@ -1,6 +1,9 @@
 import 'test.dart';
 
 void main() {
+  print(1E-6);
+  print(0.000001);
+
   test('millimetres to meters', () => approx(millimeter, meter, 1000.0, 1.0));
   test('nanometre to centimeter', () => approx(nanometer, centimeter, 1000.0, 0.0001));
   test('kilometre to foot', () => approx(kilometer, foot, 10.0, 32808.39895));

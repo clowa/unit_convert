@@ -17,12 +17,13 @@ class LengthConverter extends NumericalConverter {
   const LengthConverter._(String id, double factor, [String symbol])
       : super(id, r: factor, s: symbol);
 
-  String get name => Converter.i18n['length'][id] ?? id;
+  @override
+  String get category => 'length';
 }
 
 class LengthUnit {
   const LengthUnit._();
-  
+
   // Base Unit: Centimeter
 
   // Metrical

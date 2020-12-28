@@ -1,11 +1,14 @@
 import '../converter.dart';
 
+const degree = AngleUnit.degree;
+const radian = AngleUnit.radian;
+
 class AngleConverter extends NumericalConverter {
   const AngleConverter._(String id, String symbol, double ratio)
       : super(id, s: symbol, r: ratio);
 
   @override
-  String get name => Converter.i18n['angle'][id];
+  String get category => 'angle';
 }
 
 class AngleUnit {
