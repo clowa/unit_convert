@@ -2,7 +2,6 @@ export 'angle_converter.dart';
 export 'area_converter.dart';
 export 'energy_converter.dart';
 export 'force_converter.dart';
-export 'fuel_consumption_converter.dart';
 export 'length_converter.dart';
 export 'number_converter.dart';
 export 'power_converter.dart';

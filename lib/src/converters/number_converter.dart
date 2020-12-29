@@ -1,5 +1,7 @@
 import '../converter.dart';
 
+// ignore_for_file: public_member_api_docs
+
 const binary = NumberBase.binary;
 const octal = NumberBase.octal;
 const decimal = NumberBase.decimal;
@@ -17,7 +19,7 @@ class NumberConverter extends StringConverter {
   @override
   String get name {
     if (id.startsWith('base')) {
-      String b = Converter.i18n['numbers']['base'];
+      final String b = Converter.i18n['numbers']['base'];
       return b.replaceFirst('{}', radix.toString());
     } else {
       return Converter.i18n['numbers'][id] ?? id;

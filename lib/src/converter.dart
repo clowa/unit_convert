@@ -1,21 +1,43 @@
 import 'package:meta/meta.dart';
 
-import 'converters/converters.dart';
 import 'i18n/i18n.dart';
 
 export 'converters/converters.dart';
 
+/// Converts the given [value] from the unit given by [from]
+/// to the unit given by [to].
+///
+/// Throws `IllegalArgumentException` if its not possible to
+/// convert between the two units.
 T convert<T>(Converter<T> from, Converter<T> to, T value) => from(to, value);
 
+/// A custom conversion function.
 typedef ConversionFn = double Function(num value);
 
+/// The base class for all converters.
 abstract class Converter<T> {
+  /// The id of this unit.
   final String id;
-  final String symbol;
-  const Converter(this.id, {this.symbol});
+
+  /// Creates a new converter.
+  const Converter(this.id);
 
   static String _locale;
+
+  /// The current locale for [name] and [symbol].
+  ///
+  /// Current supported localese are:
+  ///
+  /// - English (en)
+  /// - German (de)
   static String get locale => _locale;
+
+  /// Sets the current locale for [name] and [symbol].
+  ///
+  /// Current supported localese are:
+  ///
+  /// - English (en)
+  /// - German (de)
   static set locale(String value) {
     if (translations.containsKey(value)) {
       i18n = translations[value];
@@ -24,14 +46,47 @@ abstract class Converter<T> {
     }
   }
 
+  /// The translations for [name] and [symbol].
+  ///
+  /// Current supported languages are:
+  ///
+  /// - English
+  /// - German
+  @protected
   static Map i18n = en;
 
-  String get name => i18n[category][id] ?? id;
+  /// The id of the category of this unit.
   String get category;
 
+  /// The localized name of this unit.
+  String get name => _parts.first;
+
+  /// The localized symbol of this unit.
+  String get symbol => _parts.last;
+
+  /// Whether this unit has a symbol.
+  bool get hasSymbol => name != symbol;
+
+  List<String> get _parts {
+    final parts = i18n[category][id];
+    if (parts is List) {
+      return parts;
+    } else {
+      return [parts];
+    }
+  }
+
+  /// Convertes the given [value] from this
+  /// unit to [other].
   T call(Converter<T> other, T value) => to(other, value);
+
+  /// Convertes the given [value] from this
+  /// unit to [other].
   T to(Converter<T> other, T value);
 
+  /// Throws an ArgumentError if the Types of the two Converters
+  /// don't match and returns the casted converter otherwise.
+  @protected
   C typeCheckConverter<C extends Converter<T>>(Converter<T> other) {
     if (runtimeType != other.runtimeType) {
       throw ArgumentError.value(
@@ -57,43 +112,67 @@ abstract class Converter<T> {
   int get hashCode => id.hashCode;
 }
 
+/// A numerical converter that can be expressed as a
+/// ratio to the base unit.
 abstract class RatioConverter extends Converter<double> {
+  /// The conversion ratio to the base unit.
   final double ratio;
+
+  /// A custom conversion function to convert from the base unit.
+  final ConversionFn forward;
+
+  /// A custom conversion function to convert to the base unit.
+  final ConversionFn reverse;
+
+  /// Creates a numerical converter that can be expressed as a
+  /// ratio to the base unit.
   const RatioConverter(
     String id, {
     @required double r,
-    String s,
+    ConversionFn f,
+    ConversionFn b,
   })  : ratio = r,
-        super(
-          id,
-          symbol: s,
-        );
+        forward = f,
+        reverse = b,
+        super(id);
 
+  @override
   double to(Converter<double> other, double value) {
     final o = typeCheckConverter<RatioConverter>(other);
-    return value * (ratio / o.ratio);
+    final base = reverse?.call(value) ?? (value * ratio);
+    return o.forward?.call(base) ?? (base / o.ratio);
   }
 }
 
+/// A custom converter with function for both
+/// to base and from base conversions.
 abstract class CustomConverter extends Converter<double> {
+  /// Converts the value from the base unit
+  /// to the unit of this.
   final ConversionFn forward;
+
+  /// Converts the value to the base unit.
   final ConversionFn reverse;
+
+  /// Creates a custom converter with function for both
+  /// to base and from base conversions.
   CustomConverter(
     String id, {
-    String s,
     @required ConversionFn f,
     @required ConversionFn r,
   })  : forward = f,
         reverse = r,
-        super(id, symbol: s);
+        super(id);
 
+  @override
   double to(Converter<double> other, double value) {
     final o = typeCheckConverter<CustomConverter>(other);
     return o.forward(reverse(value));
   }
 }
 
+/// A converter that converts Strings.
 abstract class StringConverter extends Converter<String> {
-  const StringConverter(String id, {String symbol}) : super(id, symbol: symbol);
+  /// Creates a converter that converts Strings.
+  const StringConverter(String id) : super(id);
 }
-
