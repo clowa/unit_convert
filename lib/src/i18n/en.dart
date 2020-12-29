@@ -1,5 +1,6 @@
 const en = {
   'area': {
+    'area': 'Area',
     'square_kilometer': ['Square Kilometer', 'km^2'],
     'square_hectometer': ['Square Hectometer', 'hm^2'],
     'square_dekameter': ['Square Dekameter', 'dam^2'],
@@ -37,6 +38,7 @@ const en = {
     'sextant': 'Sextant',
   },
   'energy': {
+    'energy': 'Energy',
     'gigajoule': ['Gigajoule', 'GJ'],
     'megajoule': ['Megajoule', 'MJ'],
     'kilojoule': ['Kilojoule', 'kJ'],
@@ -240,10 +242,11 @@ const en = {
     'foot_water_60_deg': ['Foot Water (60°F)', 'ftAq'],
   },
   'speed': {
-    'kilometer_hour': ['Kilometer per Hour', 'km/h'],
-    'kilometer_minute': ['Kilometer per Minute', 'km/m'],
-    'kilometer_second': ['Kilometer per Second', 'km/s'],
-    'meter_hour': ['Meter per Hour', 'm/h'],
+    'speed': 'Speed',
+    'kilometer_hour': ['Kilometer per Hour', 'kph'],
+    'kilometer_minute': ['Kilometer per Minute', 'kpm'],
+    'kilometer_second': ['Kilometer per Second', 'kps'],
+    'meter_hour': ['Meter per Hour', 'mph'],
     'meter_minute': ['Meter per Minute', 'm/m'],
     'meter_second': ['Meter per Second', 'm/s'],
     'centimeter_hour': ['Centimeter per Hour', 'cm/h'],
@@ -352,6 +355,7 @@ const en = {
     'plank_time': 'Plank Time',
   },
   'volume': {
+    'volume': 'Volume',
     'cubic_millimeter': ['Cubic Millimeter', 'mm^3'],
     'cubic_centimeter': ['Cubic Centimeter', 'cm^3'],
     'cubic_meter': ['Cubic Meter', 'm^3'],
@@ -404,6 +408,7 @@ const en = {
     'earths_volume': 'Earth\'s Volume',
   },
   'weight': {
+    'weight': 'Weight',
     'exagram': ['Exagram', 'Eg'],
     'petagram': ['Petagram', 'Pg'],
     'teragram': ['Teragram', 'Tg'],
