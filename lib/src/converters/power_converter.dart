@@ -119,4 +119,13 @@ class PowerUnit {
     caloriesPerMinute,
     caloriesPerSecond,
   ];
+
+  /// Returns the [PowerConverter] for this [id] or throws a StateError
+  /// if there is no [PowerConverter] associated with this id.
+  static PowerConverter parse(String id, {PowerConverter orElse}) =>
+      units.firstWhere((unit) => unit.id == id, orElse: () => orElse);
+
+  /// Returns the [PowerConverter] for this [id] or returns null
+  /// if there is no [PowerConverter] associated with this id.
+  static PowerConverter tryParse(String id) => parse(id, orElse: null);
 }

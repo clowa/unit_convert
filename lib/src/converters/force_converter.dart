@@ -127,4 +127,13 @@ class ForceUnit {
     pond,
     kilopond,
   ];
+
+  /// Returns the [ForceConverter] for this [id] or throws a StateError
+  /// if there is no [ForceConverter] associated with this id.
+  static ForceConverter parse(String id, {ForceConverter orElse}) =>
+      units.firstWhere((unit) => unit.id == id, orElse: () => orElse);
+
+  /// Returns the [ForceConverter] for this [id] or returns null
+  /// if there is no [ForceConverter] associated with this id.
+  static ForceConverter tryParse(String id) => parse(id, orElse: null);
 }

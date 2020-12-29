@@ -17,7 +17,7 @@ const squareInch = AreaUnit.squareInch;
 const acre = AreaUnit.acre;
 const hectare = AreaUnit.hectare;
 
-class AreaConverter extends RatioConverter {
+class AreaConverter extends RatioConverter implements AreaUnit {
   const AreaConverter._(String id, double ratio) : super(id, r: ratio);
 
   @override
@@ -85,4 +85,13 @@ class AreaUnit {
     rood,
     barn,
   ];
+
+  /// Returns the [AreaConverter] for this [id] or throws a StateError
+  /// if there is no [AreaConverter] associated with this id.
+  static AreaConverter parse(String id, {AreaConverter orElse}) =>
+      units.firstWhere((unit) => unit.id == id, orElse: () => orElse);
+
+  /// Returns the [AreaConverter] for this [id] or returns null
+  /// if there is no [AreaConverter] associated with this id.
+  static AreaConverter tryParse(String id) => parse(id, orElse: null);
 }

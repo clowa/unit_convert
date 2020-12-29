@@ -23,7 +23,7 @@ const standardAtmosphere = PressureUnit.standardAtmosphere;
 
 const torr = PressureUnit.torr;
 
-class PressureConverter extends RatioConverter {
+class PressureConverter extends RatioConverter implements PressureUnit {
   const PressureConverter._(String id, double ratio) : super(id, r: ratio);
 
   @override
@@ -105,6 +105,7 @@ class PressureUnit {
     decipascal,
     pascal,
     dekapascal,
+    hectopascal,
     kilopascal,
     megapascal,
     gigapascal,
@@ -131,6 +132,7 @@ class PressureUnit {
     decipascal,
     pascal,
     dekapascal,
+    hectopascal,
     kilopascal,
     megapascal,
     gigapascal,
@@ -154,4 +156,13 @@ class PressureUnit {
     inchWater60Deg,
     footWater60Deg,
   ];
+
+  /// Returns the [PressureConverter] for this [id] or throws a StateError
+  /// if there is no [PressureConverter] associated with this id.
+  static PressureConverter parse(String id, {PressureConverter orElse}) =>
+      units.firstWhere((unit) => unit.id == id, orElse: () => orElse);
+
+  /// Returns the [PressureConverter] for this [id] or returns null
+  /// if there is no [PressureConverter] associated with this id.
+  static PressureConverter tryParse(String id) => parse(id, orElse: null);
 }

@@ -114,4 +114,13 @@ class EnergyUnit {
     kiloton,
     ton,
   ];
+
+  /// Returns the [EnergyConverter] for this [id] or throws a StateError
+  /// if there is no [EnergyConverter] associated with this id.
+  static EnergyConverter parse(String id, {EnergyConverter orElse}) =>
+      units.firstWhere((unit) => unit.id == id, orElse: () => orElse);
+
+  /// Returns the [EnergyConverter] for this [id] or returns null
+  /// if there is no [EnergyConverter] associated with this id.
+  static EnergyConverter tryParse(String id) => parse(id, orElse: null);
 }

@@ -12,10 +12,10 @@ const nanometer = LengthUnit.nanometer;
 const mile = LengthUnit.mile;
 const yard = LengthUnit.yard;
 const foot = LengthUnit.foot;
-const inch = LengthUnit.nanometer;
+const inch = LengthUnit.inch;
 const nauticalMile = LengthUnit.nauticalMile;
 
-class LengthConverter extends RatioConverter {
+class LengthConverter extends RatioConverter implements LengthUnit {
   const LengthConverter._(String id, double factor) : super(id, r: factor);
 
   @override
@@ -195,4 +195,13 @@ class LengthUnit {
     point,
     caliber,
   ];
+
+  /// Returns the [LengthConverter] for this [id] or throws a StateError
+  /// if there is no [LengthConverter] associated with this id.
+  static LengthConverter parse(String id, {LengthConverter orElse}) =>
+      units.firstWhere((unit) => unit.id == id, orElse: () => orElse);
+
+  /// Returns the [LengthConverter] for this [id] or returns null
+  /// if there is no [LengthConverter] associated with this id.
+  static LengthConverter tryParse(String id) => parse(id, orElse: null);
 }

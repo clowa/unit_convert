@@ -145,4 +145,13 @@ class StorageUnit {
     jaz1GB,
     jaz2GB,
   ];
+
+  /// Returns the [StorageConverter] for this [id] or throws a StateError
+  /// if there is no [StorageConverter] associated with this id.
+  static StorageConverter parse(String id, {StorageConverter orElse}) =>
+      units.firstWhere((unit) => unit.id == id, orElse: () => orElse);
+
+  /// Returns the [StorageConverter] for this [id] or returns null
+  /// if there is no [StorageConverter] associated with this id.
+  static StorageConverter tryParse(String id) => parse(id, orElse: null);
 }

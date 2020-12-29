@@ -124,4 +124,13 @@ class TimeUnit {
     shake,
     plankTime,
   ];
+
+  /// Returns the [TimeConverter] for this [id] or throws a StateError
+  /// if there is no [TimeConverter] associated with this id.
+  static TimeConverter parse(String id, {TimeConverter orElse}) =>
+      units.firstWhere((unit) => unit.id == id, orElse: () => orElse);
+
+  /// Returns the [TimeConverter] for this [id] or returns null
+  /// if there is no [TimeConverter] associated with this id.
+  static TimeConverter tryParse(String id) => parse(id, orElse: null);
 }

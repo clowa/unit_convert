@@ -7,6 +7,11 @@ const cubicCentimeter = VolumeUnit.cubicCentimeter;
 const cubicMeter = VolumeUnit.cubicMeter;
 const cubicKilometer = VolumeUnit.cubicKilometer;
 
+const cubicMile = VolumeUnit.cubicMile;
+const cubicYard = VolumeUnit.cubicYard;
+const cubicFoot = VolumeUnit.cubicFoot;
+const cubicInch = VolumeUnit.cubicInch;
+
 const exaliter = VolumeUnit.exaliter;
 const petaliter = VolumeUnit.petaliter;
 const teraliter = VolumeUnit.teraliter;
@@ -32,7 +37,7 @@ const barrelUK = VolumeUnit.barrelUK;
 const gallonUS = VolumeUnit.gallonUS;
 const gallonUK = VolumeUnit.gallonUK;
 
-class VolumeConverter extends RatioConverter {
+class VolumeConverter extends RatioConverter implements VolumeUnit {
   const VolumeConverter._(String id, double ratio) : super(id, r: ratio);
 
   @override
@@ -44,10 +49,16 @@ class VolumeUnit {
 
   // Base Unit: Cubic Meter
 
-  static const cubicMillimeter = VolumeConverter._('cubic_millimeter', 1E-9);
-  static const cubicCentimeter = VolumeConverter._('cubic_centimeter', 1E-6);
-  static const cubicMeter = VolumeConverter._('cubic_meter', 1.0);
   static const cubicKilometer = VolumeConverter._('cubic_kilometer', 1E+9);
+  static const cubicMeter = VolumeConverter._('cubic_meter', 1.0);
+  static const cubicDecimeter = VolumeConverter._('cubic_decimeter', 1E-3);
+  static const cubicCentimeter = VolumeConverter._('cubic_centimeter', 1E-6);
+  static const cubicMillimeter = VolumeConverter._('cubic_millimeter', 1E-9);
+
+  static const cubicMile = VolumeConverter._('cubic_mile', 4168181825.4);
+  static const cubicYard = VolumeConverter._('cubic_yard', 0.764554858);
+  static const cubicFoot = VolumeConverter._('cubic_foot', 0.0283168466);
+  static const cubicInch = VolumeConverter._('cubic_inch', 0.0000163871);
 
   static const exaliter = VolumeConverter._('exaliter', 1E+15);
   static const petaliter = VolumeConverter._('petaliter', 1E+12);
@@ -116,6 +127,10 @@ class VolumeUnit {
     cubicMeter,
     cubicCentimeter,
     cubicMillimeter,
+    cubicMile,
+    cubicYard,
+    cubicFoot,
+    cubicInch,
     exaliter,
     petaliter,
     teraliter,
@@ -151,6 +166,10 @@ class VolumeUnit {
     cubicMeter,
     cubicCentimeter,
     cubicMillimeter,
+    cubicMile,
+    cubicYard,
+    cubicFoot,
+    cubicInch,
     exaliter,
     petaliter,
     teraliter,
@@ -199,4 +218,13 @@ class VolumeUnit {
     dram,
     earthVolume,
   ];
+
+  /// Returns the [VolumeConverter] for this [id] or throws a StateError
+  /// if there is no [VolumeConverter] associated with this id.
+  static VolumeConverter parse(String id, {VolumeConverter orElse}) =>
+      units.firstWhere((unit) => unit.id == id, orElse: () => orElse);
+
+  /// Returns the [VolumeConverter] for this [id] or returns null
+  /// if there is no [VolumeConverter] associated with this id.
+  static VolumeConverter tryParse(String id) => parse(id, orElse: null);
 }

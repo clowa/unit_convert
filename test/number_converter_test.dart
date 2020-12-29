@@ -1,7 +1,7 @@
 import 'test.dart';
 
 void match(StringConverter from, StringConverter to, String value, String expected) {
-  expect(convert(from, to, value), equals(expected));
+  expect(from(to, value), equals(expected));
 }
 
 void main() {

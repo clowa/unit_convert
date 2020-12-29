@@ -6,8 +6,8 @@ final kelvin = TemperatureUnit.kelvin;
 final celsius = TemperatureUnit.celsius;
 final fahrenheit = TemperatureUnit.fahrenheit;
 
-class TemperatureConverter extends CustomConverter {
-  TemperatureConverter._(String id, ConversionFn f, ConversionFn r)
+class TemperatureConverter extends CustomConverter implements TemperatureUnit {
+  const TemperatureConverter._(String id, ConversionFn f, ConversionFn r)
       : super(id, f: f, r: r);
 
   @override
@@ -54,6 +54,7 @@ class TemperatureUnit {
   );
 
   static final common = [celsius, fahrenheit, kelvin];
+
   static final units = [
     celsius,
     fahrenheit,
@@ -62,4 +63,13 @@ class TemperatureUnit {
     reaumur,
     triplePointOfWater
   ];
+
+  /// Returns the [TemperatureConverter] for this [id] or throws a StateError
+  /// if there is no [TemperatureConverter] associated with this id.
+  static TemperatureConverter parse(String id, {TemperatureConverter orElse}) =>
+      units.firstWhere((unit) => unit.id == id, orElse: () => orElse);
+
+  /// Returns the [TemperatureConverter] for this [id] or returns null
+  /// if there is no [TemperatureConverter] associated with this id.
+  static TemperatureConverter tryParse(String id) => parse(id, orElse: null);
 }

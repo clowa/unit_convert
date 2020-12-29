@@ -9,7 +9,8 @@ export 'converters/converters.dart';
 ///
 /// Throws `IllegalArgumentException` if its not possible to
 /// convert between the two units.
-T convert<T>(Converter<T> from, Converter<T> to, T value) => from(to, value);
+double convert(Converter<num> from, Converter<num> to, num value) =>
+    from(to, value.toDouble());
 
 /// A custom conversion function.
 typedef ConversionFn = double Function(num value);
@@ -105,7 +106,7 @@ abstract class Converter<T> {
   bool operator ==(Object o) {
     if (identical(this, o)) return true;
 
-    return o is Converter<T> && o.id == id;
+    return o is Converter && o.id == id;
   }
 
   @override
@@ -114,7 +115,7 @@ abstract class Converter<T> {
 
 /// A numerical converter that can be expressed as a
 /// ratio to the base unit.
-abstract class RatioConverter extends Converter<double> {
+abstract class RatioConverter extends Converter<num> {
   /// The conversion ratio to the base unit.
   final double ratio;
 
@@ -137,7 +138,9 @@ abstract class RatioConverter extends Converter<double> {
         super(id);
 
   @override
-  double to(Converter<double> other, double value) {
+  double to(Converter<num> other, num value) {
+    if (value == null) return null;
+
     final o = typeCheckConverter<RatioConverter>(other);
     final base = reverse?.call(value) ?? (value * ratio);
     return o.forward?.call(base) ?? (base / o.ratio);
@@ -146,7 +149,7 @@ abstract class RatioConverter extends Converter<double> {
 
 /// A custom converter with function for both
 /// to base and from base conversions.
-abstract class CustomConverter extends Converter<double> {
+abstract class CustomConverter extends Converter<num> {
   /// Converts the value from the base unit
   /// to the unit of this.
   final ConversionFn forward;
@@ -156,7 +159,7 @@ abstract class CustomConverter extends Converter<double> {
 
   /// Creates a custom converter with function for both
   /// to base and from base conversions.
-  CustomConverter(
+  const CustomConverter(
     String id, {
     @required ConversionFn f,
     @required ConversionFn r,
@@ -165,7 +168,9 @@ abstract class CustomConverter extends Converter<double> {
         super(id);
 
   @override
-  double to(Converter<double> other, double value) {
+  double to(Converter<num> other, num value) {
+    if (value == null) return null;
+
     final o = typeCheckConverter<CustomConverter>(other);
     return o.forward(reverse(value));
   }

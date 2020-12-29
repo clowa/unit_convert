@@ -27,7 +27,7 @@ const knot = SpeedUnit.knot;
 const mach = SpeedUnit.mach;
 final beaufort = SpeedUnit.beaufort;
 
-class SpeedConverter extends RatioConverter {
+class SpeedConverter extends RatioConverter implements SpeedUnit {
   const SpeedConverter._(String id, double ratio, {ConversionFn f, ConversionFn r})
       : super(id, r: ratio, f: f, b: r);
 
@@ -133,4 +133,13 @@ class SpeedUnit {
     mach,
     beaufort,
   ];
+
+  /// Returns the [SpeedConverter] for this [id] or throws a StateError
+  /// if there is no [SpeedConverter] associated with this id.
+  static SpeedConverter parse(String id, {SpeedConverter orElse}) =>
+      units.firstWhere((unit) => unit.id == id, orElse: () => orElse);
+
+  /// Returns the [SpeedConverter] for this [id] or returns null
+  /// if there is no [SpeedConverter] associated with this id.
+  static SpeedConverter tryParse(String id) => parse(id, orElse: null);
 }

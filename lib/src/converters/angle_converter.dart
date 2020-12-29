@@ -5,7 +5,7 @@ import '../converter.dart';
 const degree = AngleUnit.degree;
 const radian = AngleUnit.radian;
 
-class AngleConverter extends RatioConverter {
+class AngleConverter extends RatioConverter implements AngleUnit {
   const AngleConverter._(String id, double ratio) : super(id, r: ratio);
 
   @override
@@ -52,4 +52,13 @@ class AngleUnit {
     rightAngle,
     sextant
   ];
+
+  /// Returns the [TemperatureConverter] for this [id] or throws a StateError
+  /// if there is no [TemperatureConverter] associated with this id.
+  static AngleConverter parse(String id, {AngleConverter orElse}) =>
+      units.firstWhere((unit) => unit.id == id, orElse: () => orElse);
+
+  /// Returns the [AngleConverter] for this [id] or returns null
+  /// if there is no [AngleConverter] associated with this id.
+  static AngleConverter tryParse(String id) => parse(id, orElse: null);
 }

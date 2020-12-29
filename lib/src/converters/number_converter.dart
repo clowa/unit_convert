@@ -97,4 +97,13 @@ class NumberBase {
     base128,
     base256,
   ];
+
+  /// Returns the [NumberConverter] for this [id] or throws a StateError
+  /// if there is no [NumberConverter] associated with this id.
+  static NumberConverter parse(String id, {NumberConverter orElse}) =>
+      units.firstWhere((unit) => unit.id == id, orElse: () => orElse);
+
+  /// Returns the [NumberConverter] for this [id] or returns null
+  /// if there is no [NumberConverter] associated with this id.
+  static NumberConverter tryParse(String id) => parse(id, orElse: null);
 }

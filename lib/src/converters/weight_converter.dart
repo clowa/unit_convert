@@ -170,4 +170,13 @@ class WeightUnit {
     earthMass,
     sunMass,
   ];
+
+  /// Returns the [WeightConverter] for this [id] or throws a StateError
+  /// if there is no [WeightConverter] associated with this id.
+  static WeightConverter parse(String id, {WeightConverter orElse}) =>
+      units.firstWhere((unit) => unit.id == id, orElse: () => orElse);
+
+  /// Returns the [WeightConverter] for this [id] or returns null
+  /// if there is no [WeightConverter] associated with this id.
+  static WeightConverter tryParse(String id) => parse(id, orElse: null);
 }
