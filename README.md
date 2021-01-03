@@ -88,7 +88,7 @@ Converter.locale = 'en';
 
 Currently supported languages are:
 
-| Language        |
-| :-------------- |
-| `English`       |
-| `German`        |
+| Language        | Code    |
+| :-------------- | :------ |
+| `English`       | `en_GB` |
+| `German`        | `de_DE` |
