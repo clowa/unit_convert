@@ -18,24 +18,41 @@ If you like this package, consider supporting it by giving it a star on [GitHub]
 
 # Usage
 
+### Conversions
+
 The `convert` function can be used to convert between most units:
 
 ~~~dart
 import 'package:unit_convert/unit_convert.dart';
 
+//                     (from)    (to)        (celsius)
 double result = convert(celsius, fahrenheit, 100);
 ~~~
 
 The most commonly used units are already imported by default. If you need to convert between less commonly used units, please use the enum of the unit category.
 
 ~~~dart
-double result = convert(LengthUnit.astronomicalUnit, LengthUnit.lightYear, 1000);
+double result = convert(LengthUnit.astronomicalUnit, LengthUnit.lightYear, 100000);
 ~~~
+
+Units can also be converted using the `to` method on each unit:
+
+~~~dart
+double result = WeightUnit.earthMass.to(WeightUnit.sunMass, 5);
+~~~
+
+or shorthand using function invocation:
+
+~~~dart
+double result = WeightUnit.earthMass(WeightUnit.sunMass, 5);
+~~~
+
+### Available Units
 
 The following unit categories are available:
 
 | Category            | Examples Units                         |
-| ------------------- | -------------------------------------- |
+| :------------------ | :------------------------------------- |
 | `AngleUnit`         | `degree`, `radian`, `grad`, `minute`   |
 | `AreaUnit`          | `squareMeter`, `squareMile`, `hectare` |
 | `EnergyUnit`        | `joule`, `wattHour`, `calorie`         |
