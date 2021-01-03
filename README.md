@@ -55,7 +55,7 @@ double result = TimeUnit.leapYear.to(TimeUnit.quindecinnal, 10);
 double result = from(EnergyUnit.kilocalorie).to(EnergyUnit.wattHour, 1000);
 ~~~
 
-### Available Units
+## Available Units
 
 The following unit categories are available:
 
@@ -76,7 +76,7 @@ The following unit categories are available:
 | `VolumeUnit`        | `gallon`, `barrel`, `milliliter`       |
 | `WeightUnit`        | `pound`, `ton`, `kilogram`, `ounce`    |
 
-### Localization
+## Localization
 
 Each unit has a `name` and a `symbol` associated with it. You can set or get the locale for `name` and `symbol` using:
 
@@ -90,3 +90,13 @@ Currently supported languages are:
 | :-------------- | :------ |
 | `English`       | `en_GB` |
 | `German`        | `de_DE` |
+
+## Persistence
+
+Each unit has a unique `id` that you can use for persistence to local storage. You can then call `parse` on the unit enum to retrieve again the correct converter.
+
+~~~dart
+final id = TemperatureUnit.celsius.id;
+
+final celsius = TemperatureUnit.parse('celsius');
+~~~
