@@ -23,15 +23,13 @@ abstract class Converter<T> {
   /// Creates a new converter.
   const Converter(this.id);
 
-  static String _locale;
-
   /// The current locale for [name] and [symbol].
   ///
   /// Current supported localese are:
   ///
   /// - English (en)
   /// - German (de)
-  static String get locale => _locale;
+  static String get locale => i18n['locale'];
 
   /// Sets the current locale for [name] and [symbol].
   ///

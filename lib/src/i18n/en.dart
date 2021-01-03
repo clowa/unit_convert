@@ -1,4 +1,5 @@
 const en = {
+  'locale': 'en',
   'area': {
     'area': 'Area',
     'square_kilometer': ['Square Kilometer', 'km²'],
