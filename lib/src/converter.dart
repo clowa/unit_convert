@@ -4,6 +4,13 @@ import 'i18n/i18n.dart';
 
 export 'converters/converters.dart';
 
+/// Sytactic sugar for
+/// 
+/// ~~~dart
+/// from(celsius).to(fahrenheit, 100);
+/// ~~~
+Converter<T> from<T>(Converter<T> converter) => converter;
+
 /// Converts the given [value] from the unit given by [from]
 /// to the unit given by [to].
 ///
