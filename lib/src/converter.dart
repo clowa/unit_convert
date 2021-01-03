@@ -5,16 +5,16 @@ import 'i18n/i18n.dart';
 export 'converters/converters.dart';
 
 /// Sytactic sugar for
-/// 
+///
 /// ~~~dart
 /// from(celsius).to(fahrenheit, 100);
 /// ~~~
 Converter<T> from<T>(Converter<T> converter) => converter;
 
 /// Converts the given [value] from the unit given by [from]
-/// to the unit given by [to].
+/// to the target unit given by [to].
 ///
-/// Throws `IllegalArgumentException` if its not possible to
+/// Throws `ArgumentError` if its not possible to
 /// convert between the two units.
 double convert(Converter<num> from, Converter<num> to, num value) =>
     from(to, value.toDouble());
@@ -82,12 +82,16 @@ abstract class Converter<T> {
     }
   }
 
-  /// Convertes the given [value] from this
-  /// unit to [other].
+  /// {@macro convert}
   T call(Converter<T> other, T value) => to(other, value);
 
+  /// {@template convert}
   /// Convertes the given [value] from this
-  /// unit to [other].
+  /// unit to the [other] unit.
+  ///
+  /// Throws `ArgumentError` if its not possible to
+  /// convert between the two units.
+  /// {@endtemplate}
   T to(Converter<T> other, T value);
 
   /// Throws an ArgumentError if the Types of the two Converters

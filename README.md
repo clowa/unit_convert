@@ -20,7 +20,7 @@ If you like this package, consider supporting it by giving it a star on [GitHub]
 
 ### Conversions
 
-The `convert` function can be used to convert between most units:
+You can use the `convert` function to convert between most units:
 
 ~~~dart
 import 'package:unit_convert/unit_convert.dart';
@@ -29,7 +29,7 @@ import 'package:unit_convert/unit_convert.dart';
 double result = convert(celsius, fahrenheit, 100);
 ~~~
 
-Units can also be converted using the `to` method on each unit:
+or using the `to` method on each unit:
 
 ~~~dart
 double result = celsius.to(fahrenheit, 100);
@@ -47,13 +47,15 @@ or using `from` for more clarity:
 double result = from(celsius).to(fahrenheit, 100);
 ~~~
 
-The most commonly used units are already imported by default. If you need to convert between less commonly used units, please use the enum of the unit category.
+The most commonly used units are already imported by default. If you need to convert between less commonly used units, please use the enum of the unit category:
 
 ~~~dart
 double result = convert(LengthUnit.astronomicalUnit, LengthUnit.lightYear, 100000);
 double result = TimeUnit.leapYear.to(TimeUnit.quindecinnal, 10);
 double result = from(EnergyUnit.kilocalorie).to(EnergyUnit.wattHour, 1000);
 ~~~
+
+
 
 ### Available Units
 
@@ -76,16 +78,12 @@ The following unit categories are available:
 | `VolumeUnit`        | `gallon`, `barrel`, `milliliter`       |
 | `WeightUnit`        | `pound`, `ton`, `kilogram`, `ounce`    |
 
+### Localization
 
+Each unit has a `name` and a `symbol` associated with it. You can set or get the locale for `name` and `symbol` using:
 
+~~~dart
+Converter.locale = 'en';
+~~~
 
-
-
-
-
-
-
-
-
-
-
+Currently supported languages are `English` and `German`.
