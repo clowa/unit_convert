@@ -17,6 +17,7 @@ const squareInch = AreaUnit.squareInch;
 const acre = AreaUnit.acre;
 const hectare = AreaUnit.hectare;
 
+/// Converter for numerous [AreaUnit]s.
 class AreaConverter extends RatioConverter implements AreaUnit {
   const AreaConverter._(String id, double ratio) : super(id, r: ratio);
 
@@ -24,6 +25,7 @@ class AreaConverter extends RatioConverter implements AreaUnit {
   String get category => 'area';
 }
 
+/// Enum for numerous [AreaConverter]s.
 class AreaUnit {
   const AreaUnit._();
 

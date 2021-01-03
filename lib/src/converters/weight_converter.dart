@@ -31,6 +31,7 @@ const poundal = WeightUnit.poundal;
 const ounce = WeightUnit.ounce;
 const carat = WeightUnit.carat;
 
+/// Converter for numerous [WeightUnit]s.
 class WeightConverter extends RatioConverter {
   const WeightConverter._(String id, double ratio) : super(id, r: ratio);
 
@@ -38,6 +39,7 @@ class WeightConverter extends RatioConverter {
   String get category => 'weight';
 }
 
+/// An enum for numerous [WeightConverter]s.
 class WeightUnit {
   const WeightUnit._();
 

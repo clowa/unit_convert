@@ -15,6 +15,7 @@ const foot = LengthUnit.foot;
 const inch = LengthUnit.inch;
 const nauticalMile = LengthUnit.nauticalMile;
 
+/// Converter for numerous [LengthUnit]s.
 class LengthConverter extends RatioConverter implements LengthUnit {
   const LengthConverter._(String id, double factor) : super(id, r: factor);
 
@@ -22,6 +23,7 @@ class LengthConverter extends RatioConverter implements LengthUnit {
   String get category => 'length';
 }
 
+/// Enum for numerous [LengthConverter]s.
 class LengthUnit {
   const LengthUnit._();
 

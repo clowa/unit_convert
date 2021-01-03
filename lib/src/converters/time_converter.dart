@@ -19,6 +19,7 @@ const millenium = TimeUnit.millenium;
 
 const fortnight = TimeUnit.fortnight;
 
+/// Converter for numerous [TimeUnit]s.
 class TimeConverter extends RatioConverter {
   const TimeConverter._(String id, double ratio) : super(id, r: ratio);
 
@@ -26,6 +27,7 @@ class TimeConverter extends RatioConverter {
   String get category => 'time';
 }
 
+/// An enum for numerous [TimeConverter]s.
 class TimeUnit {
   const TimeUnit._();
 

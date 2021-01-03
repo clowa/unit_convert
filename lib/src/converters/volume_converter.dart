@@ -37,6 +37,7 @@ const barrelUK = VolumeUnit.barrelUK;
 const gallonUS = VolumeUnit.gallonUS;
 const gallonUK = VolumeUnit.gallonUK;
 
+/// Converter for numerous [VolumeUnit]s.
 class VolumeConverter extends RatioConverter implements VolumeUnit {
   const VolumeConverter._(String id, double ratio) : super(id, r: ratio);
 
@@ -44,6 +45,7 @@ class VolumeConverter extends RatioConverter implements VolumeUnit {
   String get category => 'volume';
 }
 
+/// An enum for numerous [VolumeConverter]s.
 class VolumeUnit {
   const VolumeUnit._();
 

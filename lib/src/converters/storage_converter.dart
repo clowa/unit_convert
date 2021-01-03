@@ -27,6 +27,7 @@ const cd80Minute = StorageUnit.cd80Minute;
 
 const dvd = StorageUnit.dvd;
 
+/// Converter for numerous [StorageUnit]s.
 class StorageConverter extends RatioConverter {
   const StorageConverter._(String id, double ratio) : super(id, r: ratio);
 
@@ -34,6 +35,7 @@ class StorageConverter extends RatioConverter {
   String get category => 'storage';
 }
 
+/// An enum for numerous [StorageConverter]s.
 class StorageUnit {
   const StorageUnit._();
 

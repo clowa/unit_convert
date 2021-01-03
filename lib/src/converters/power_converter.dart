@@ -18,6 +18,7 @@ const picowatt = PowerUnit.picowatt;
 const femtowatt = PowerUnit.femtowatt;
 const attowatt = PowerUnit.attowatt;
 
+/// Converter for numerous [PowerUnit]s.
 class PowerConverter extends RatioConverter {
   const PowerConverter._(String id, double ratio) : super(id, r: ratio);
 
@@ -25,6 +26,7 @@ class PowerConverter extends RatioConverter {
   String get category => 'category';
 }
 
+/// An enum for numerous [PowerConverter]s.
 class PowerUnit {
   const PowerUnit._();
 

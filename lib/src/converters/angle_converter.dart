@@ -5,6 +5,7 @@ import '../converter.dart';
 const degree = AngleUnit.degree;
 const radian = AngleUnit.radian;
 
+/// Converter for numerous [AngleUnit]s.
 class AngleConverter extends RatioConverter implements AngleUnit {
   const AngleConverter._(String id, double ratio) : super(id, r: ratio);
 
@@ -12,6 +13,7 @@ class AngleConverter extends RatioConverter implements AngleUnit {
   String get category => 'angle';
 }
 
+/// Enum for numerous [AngleConverter]s.
 class AngleUnit {
   const AngleUnit._();
 

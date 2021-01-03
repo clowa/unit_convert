@@ -23,6 +23,7 @@ const standardAtmosphere = PressureUnit.standardAtmosphere;
 
 const torr = PressureUnit.torr;
 
+/// Converter for numerous [PressureUnit]s.
 class PressureConverter extends RatioConverter implements PressureUnit {
   const PressureConverter._(String id, double ratio) : super(id, r: ratio);
 
@@ -30,6 +31,7 @@ class PressureConverter extends RatioConverter implements PressureUnit {
   String get category => 'pressure';
 }
 
+/// An enum for numerous [PowerConverter]s.
 class PressureUnit {
   const PressureUnit._();
 

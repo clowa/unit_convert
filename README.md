@@ -1,13 +1,13 @@
 # Unit Convert
 
-A tiny and purely Dart written unit converter to convert between various units easily.
+A Dart unit converter to convert between numerous units easily.
 
-# Installing (tdb)
+# Installing
 
 Add it to your `pubspec.yaml` file:
 ```yaml
 dependencies:
-  unit_convert: ^0.1.0
+  unit_convert: ^0.1.1
 ```
 Install packages from the command line
 ```
@@ -54,8 +54,6 @@ double result = convert(LengthUnit.astronomicalUnit, LengthUnit.lightYear, 10000
 double result = TimeUnit.leapYear.to(TimeUnit.quindecinnal, 10);
 double result = from(EnergyUnit.kilocalorie).to(EnergyUnit.wattHour, 1000);
 ~~~
-
-
 
 ### Available Units
 

@@ -7,10 +7,13 @@ const octal = NumberBase.octal;
 const decimal = NumberBase.decimal;
 const hexadecimal = NumberBase.hexadecimal;
 
+/// Converter for numerous [NumberBase]s.
 class NumberConverter extends StringConverter {
   final int radix;
   const NumberConverter._(String id, this.radix) : super(id);
 
+  /// Creates a custom [NumberConverter] with the
+  /// given [radix].
   const NumberConverter.radix(int radix) : this._('base_$radix', radix);
 
   @override
@@ -36,6 +39,7 @@ class NumberConverter extends StringConverter {
   }
 }
 
+/// Enum for numerous [NumberConverter]s.
 class NumberBase {
   const NumberBase._();
 

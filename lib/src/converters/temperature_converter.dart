@@ -6,6 +6,7 @@ final kelvin = TemperatureUnit.kelvin;
 final celsius = TemperatureUnit.celsius;
 final fahrenheit = TemperatureUnit.fahrenheit;
 
+/// Converter for numerous [TemperatureUnit]s.
 class TemperatureConverter extends CustomConverter implements TemperatureUnit {
   const TemperatureConverter._(String id, ConversionFn f, ConversionFn r)
       : super(id, f: f, r: r);
@@ -14,6 +15,7 @@ class TemperatureConverter extends CustomConverter implements TemperatureUnit {
   String get category => 'temperature';
 }
 
+/// An enum for numerous [TemperatureConverter]s.
 class TemperatureUnit {
   const TemperatureUnit._();
 

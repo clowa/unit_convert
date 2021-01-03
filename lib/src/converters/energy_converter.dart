@@ -24,6 +24,7 @@ const electronVolt = EnergyUnit.electronVolt;
 const kilocalorie = EnergyUnit.kilocalorie;
 const calorie = EnergyUnit.calorie;
 
+/// Converter for numerous [EnergyUnit]s.
 class EnergyConverter extends RatioConverter {
   const EnergyConverter._(String id, double ratio) : super(id, r: ratio);
 
@@ -31,6 +32,7 @@ class EnergyConverter extends RatioConverter {
   String get category => 'energy';
 }
 
+/// Enum for numerous [EnergyConverter]s.
 class EnergyUnit {
   const EnergyUnit._();
 

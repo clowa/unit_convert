@@ -27,6 +27,7 @@ const knot = SpeedUnit.knot;
 const mach = SpeedUnit.mach;
 final beaufort = SpeedUnit.beaufort;
 
+/// Converter for numerous [SpeedUnit]s.
 class SpeedConverter extends RatioConverter implements SpeedUnit {
   const SpeedConverter._(String id, double ratio,
       {ConversionFn f, ConversionFn r})
@@ -36,6 +37,7 @@ class SpeedConverter extends RatioConverter implements SpeedUnit {
   String get category => 'speed';
 }
 
+/// An enum for numerous [SpeedConverter]s.
 class SpeedUnit {
   const SpeedUnit._();
 

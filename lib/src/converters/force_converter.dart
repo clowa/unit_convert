@@ -27,6 +27,7 @@ const gramForce = ForceUnit.gramForce;
 const poundForce = ForceUnit.poundForce;
 const ounceForce = ForceUnit.ounceForce;
 
+/// Converter for numerous [ForceUnit]s.
 class ForceConverter extends RatioConverter {
   const ForceConverter._(String id, double ratio) : super(id, r: ratio);
 
@@ -34,6 +35,7 @@ class ForceConverter extends RatioConverter {
   String get category => 'force';
 }
 
+/// Enum for numerous [ForceConverter]s.
 class ForceUnit {
   const ForceUnit._();
 
