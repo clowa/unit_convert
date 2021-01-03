@@ -1,7 +1,7 @@
 name: unit_convert
-description: Convert easily between different units
+description: A tiny and purely Dart written unit converter to convert between various units easily.
 version: 0.1.0
-homepage: null
+homepage: https://github.com/bnxm/unit_convert
 
 environment:
   sdk: ">=2.7.0 <3.0.0"

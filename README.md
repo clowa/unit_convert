@@ -1,6 +1,6 @@
 # Unit Convert
 
-A tiny and purely Dart unit converter to convert between various units easily.
+A tiny and purely Dart written unit converter to convert between various units easily.
 
 # Installing (tdb)
 
@@ -86,4 +86,9 @@ Each unit has a `name` and a `symbol` associated with it. You can set or get the
 Converter.locale = 'en';
 ~~~
 
-Currently supported languages are `English` and `German`.
+Currently supported languages are:
+
+| Language        |
+| :-------------- |
+| `English`       |
+| `German`        |
