@@ -19,9 +19,11 @@ class NumberConverter extends StringConverter {
   @override
   String get name {
     if (id.startsWith('base')) {
+      // ignore: invalid_use_of_visible_for_testing_member
       final String b = Converter.i18n['numbers']['base'];
       return b.replaceFirst('{}', radix.toString());
     } else {
+      // ignore: invalid_use_of_visible_for_testing_member
       return Converter.i18n['numbers'][id] ?? id;
     }
   }
@@ -37,7 +39,8 @@ class NumberConverter extends StringConverter {
 class NumberBase {
   const NumberBase._();
 
-  static NumberConverter radix(int radix) => NumberConverter._('base_$radix', radix);
+  static NumberConverter radix(int radix) =>
+      NumberConverter._('base_$radix', radix);
 
   // Base Unit: Binary
   static const binary = NumberConverter._('binary', 2);

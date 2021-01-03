@@ -56,9 +56,12 @@ class EnergyUnit {
   static const kilowattSecond = EnergyConverter._('kilowatt_second', 1000);
   static const wattSecond = EnergyConverter._('watt_second', 1);
 
-  static const megaelectronVolt = EnergyConverter._('megaelectron_volt', 1.60217733E-13);
-  static const kiloelectronVolt = EnergyConverter._('kiloelectron_volt', 1.60217733E-16);
-  static const electronVolt = EnergyConverter._('electron_volt', 1.60217733E-19);
+  static const megaelectronVolt =
+      EnergyConverter._('megaelectron_volt', 1.60217733E-13);
+  static const kiloelectronVolt =
+      EnergyConverter._('kiloelectron_volt', 1.60217733E-16);
+  static const electronVolt =
+      EnergyConverter._('electron_volt', 1.60217733E-19);
 
   static const horsepowerHour = EnergyConverter._('horsepower_hour', 2647795.5);
 

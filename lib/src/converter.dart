@@ -58,7 +58,7 @@ abstract class Converter<T> {
   ///
   /// - English
   /// - German
-  @protected
+  @visibleForTesting
   static Map i18n = en;
 
   /// The id of the category of this unit.
@@ -124,7 +124,7 @@ abstract class Converter<T> {
 
 /// A numerical converter that can be expressed as a
 /// ratio to the base unit.
-abstract class RatioConverter extends Converter<num> {
+abstract class RatioConverter extends Converter<double> {
   /// The conversion ratio to the base unit.
   final double ratio;
 
@@ -147,7 +147,7 @@ abstract class RatioConverter extends Converter<num> {
         super(id);
 
   @override
-  double to(Converter<num> other, num value) {
+  double to(Converter<double> other, double value) {
     if (value == null) return null;
 
     final o = typeCheckConverter<RatioConverter>(other);
@@ -158,7 +158,7 @@ abstract class RatioConverter extends Converter<num> {
 
 /// A custom converter with function for both
 /// to base and from base conversions.
-abstract class CustomConverter extends Converter<num> {
+abstract class CustomConverter extends Converter<double> {
   /// Converts the value from the base unit
   /// to the unit of this.
   final ConversionFn forward;
@@ -177,7 +177,7 @@ abstract class CustomConverter extends Converter<num> {
         super(id);
 
   @override
-  double to(Converter<num> other, num value) {
+  double to(Converter<double> other, double value) {
     if (value == null) return null;
 
     final o = typeCheckConverter<CustomConverter>(other);

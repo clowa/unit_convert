@@ -28,7 +28,8 @@ const mach = SpeedUnit.mach;
 final beaufort = SpeedUnit.beaufort;
 
 class SpeedConverter extends RatioConverter implements SpeedUnit {
-  const SpeedConverter._(String id, double ratio, {ConversionFn f, ConversionFn r})
+  const SpeedConverter._(String id, double ratio,
+      {ConversionFn f, ConversionFn r})
       : super(id, r: ratio, f: f, b: r);
 
   @override
@@ -43,15 +44,24 @@ class SpeedUnit {
   static const meterPerHour = SpeedConverter._('meter_hour', 0.0002777778);
   static const meterPerMinute = SpeedConverter._('meter_minute', 1.0 / 6.0);
   static const meterPerSecond = SpeedConverter._('meter_second', 1.0);
-  static const kilometerPerHour = SpeedConverter._('kilometer_hour', 0.2777777778);
-  static const kilometerPerMinute = SpeedConverter._('kilometer_minute', 16 + 2 / 3);
-  static const kilometerPerSecond = SpeedConverter._('kilometer_second', 1000.0);
-  static const centimeterPerHour = SpeedConverter._('centimeter_hour', 0.0000027778);
-  static const centimeterPerMinute = SpeedConverter._('centimeter_minute', 0.0001666667);
-  static const centimeterPerSecond = SpeedConverter._('centimeter_second', 0.01);
-  static const millimeterPerHour = SpeedConverter._('centimeter_hour', 2.777777777E-7);
-  static const millimeterPerMinute = SpeedConverter._('centimeter_minute', 0.0000166667);
-  static const millimeterPerSecond = SpeedConverter._('centimeter_second', 0.0000166667);
+  static const kilometerPerHour =
+      SpeedConverter._('kilometer_hour', 0.2777777778);
+  static const kilometerPerMinute =
+      SpeedConverter._('kilometer_minute', 16 + 2 / 3);
+  static const kilometerPerSecond =
+      SpeedConverter._('kilometer_second', 1000.0);
+  static const centimeterPerHour =
+      SpeedConverter._('centimeter_hour', 0.0000027778);
+  static const centimeterPerMinute =
+      SpeedConverter._('centimeter_minute', 0.0001666667);
+  static const centimeterPerSecond =
+      SpeedConverter._('centimeter_second', 0.01);
+  static const millimeterPerHour =
+      SpeedConverter._('centimeter_hour', 2.777777777E-7);
+  static const millimeterPerMinute =
+      SpeedConverter._('centimeter_minute', 0.0000166667);
+  static const millimeterPerSecond =
+      SpeedConverter._('centimeter_second', 0.0000166667);
 
   static const footPerHour = SpeedConverter._('foot_hour', 0.0000846667);
   static const footPerMinute = SpeedConverter._('foot_minute', 0.00508);

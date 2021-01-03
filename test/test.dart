@@ -22,6 +22,8 @@ void main() {
     () => expect(LengthUnit.parse('centimeter'), equals(centimeter)),
   );
 
+  final r = from(celsius).to(fahrenheit, 100);
+
   test(
     'Should return orElse when no id matches the id provided',
     () => expect(LengthUnit.parse(null, orElse: centimeter), equals(centimeter)),
