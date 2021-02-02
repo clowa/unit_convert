@@ -459,4 +459,9 @@ const en = {
     'earth_mass': 'Earth Mass',
     'sun_mass': 'Sun Mass',
   },
+  'weight_ratio': {
+    'weight_ratio': 'weight ratio',
+    'ounce_lb': ['Ounce per Pound', 'oz/lb'],
+    'gram_kg': ['Gram per Kilogram', 'g/kg'],
+  },
 };

@@ -75,7 +75,9 @@ The following unit categories are available:
 | `TimeUnit`          | `day`, `millenium`, `plankTime`        |
 | `VolumeUnit`        | `gallon`, `barrel`, `milliliter`       |
 | `WeightUnit`        | `pound`, `ton`, `kilogram`, `ounce`    |
+| `WeightRatioUnit`   | `ouncePerLb`, `gramPerKg`              |
 
+_For a complete list of available units see files under /lib/src/converters/_
 ## Localization
 
 Each unit has a `name` and a `symbol` associated with it. You can set or get the locale for `name` and `symbol` using:

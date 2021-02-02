@@ -32,6 +32,7 @@ class Units {
     ...TimeUnit.units,
     ...VolumeUnit.units,
     ...WeightUnit.units,
+    ...WeightRatioUnit.units,
   ];
 
   /// All common [Converters].
@@ -50,5 +51,6 @@ class Units {
     ...TimeUnit.common,
     ...VolumeUnit.common,
     ...WeightUnit.common,
+    ...WeightRatioUnit.common,
   ];
 }

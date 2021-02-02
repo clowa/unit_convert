@@ -458,4 +458,9 @@ const de = {
     'earth_mass': 'Erdmasse',
     'sun_mass': 'Sonnenmasse',
   },
+  'weight_ratio': {
+    'weight_ratio': 'Gewichtsverhältnis',
+    'ounce_lb': ['Unzen pro Pfund', 'oz/lb'],
+    'gram_kg': ['Gramm pro Kilogramm', 'g/kg'],
+  },
 };
