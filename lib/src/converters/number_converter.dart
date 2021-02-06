@@ -17,17 +17,16 @@ class NumberConverter extends StringConverter {
   const NumberConverter.radix(int radix) : this._('base_$radix', radix);
 
   @override
-  String get category => 'number';
+  String get category => 'numbers';
 
   @override
   String get name {
     if (id.startsWith('base')) {
       // ignore: invalid_use_of_visible_for_testing_member
-      final String b = Converter.i18n['numbers']['base'];
+      final String b = Converter.i18n[category]['base'];
       return b.replaceFirst('{}', radix.toString());
     } else {
-      // ignore: invalid_use_of_visible_for_testing_member
-      return Converter.i18n['numbers'][id] ?? id;
+      return super.name;
     }
   }
 

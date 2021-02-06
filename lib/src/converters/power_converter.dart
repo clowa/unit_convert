@@ -23,7 +23,7 @@ class PowerConverter extends RatioConverter {
   const PowerConverter._(String id, double ratio) : super(id, r: ratio);
 
   @override
-  String get category => 'category';
+  String get category => 'power';
 }
 
 /// An enum for numerous [PowerConverter]s.

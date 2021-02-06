@@ -91,7 +91,7 @@ class WeightUnit {
       WeightConverter._('atomic_mass_unit', 1.660540199E-24);
   static const plankMass = WeightConverter._('plank_mass', 0.0000217671);
   static const electronMass =
-      WeightConverter._('electro_mass', 9.109389699E-28);
+      WeightConverter._('electron_mass', 9.109389699E-28);
   static const muonMass = WeightConverter._('muon_mass', 1.8835327E-25);
   static const protonMass = WeightConverter._('proton_mass', 1.672623099E-24);
   static const neutronMass = WeightConverter._('neutron_mass', 1.6749286E-24);
