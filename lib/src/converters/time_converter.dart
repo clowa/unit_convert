@@ -1,4 +1,5 @@
 import '../converter.dart';
+import '../util/extensions.dart';
 
 // ignore_for_file: public_member_api_docs
 
@@ -127,12 +128,7 @@ class TimeUnit {
     plankTime,
   ];
 
-  /// Returns the [TimeConverter] for this [id] or throws a StateError
+  /// Returns the [TimeConverter] for this [id] or null
   /// if there is no [TimeConverter] associated with this id.
-  static TimeConverter parse(String id, {TimeConverter orElse}) =>
-      units.firstWhere((unit) => unit.id == id, orElse: () => orElse);
-
-  /// Returns the [TimeConverter] for this [id] or returns null
-  /// if there is no [TimeConverter] associated with this id.
-  static TimeConverter tryParse(String id) => parse(id, orElse: null);
+  static TimeConverter? parse(String id) => units.find(id);
 }

@@ -1,4 +1,5 @@
 import '../converter.dart';
+import '../util/extensions.dart';
 
 // ignore_for_file: public_member_api_docs
 
@@ -55,12 +56,7 @@ class AngleUnit {
     sextant
   ];
 
-  /// Returns the [TemperatureConverter] for this [id] or throws a StateError
+  /// Returns the [TemperatureConverter] for this [id] or null
   /// if there is no [TemperatureConverter] associated with this id.
-  static AngleConverter parse(String id, {AngleConverter orElse}) =>
-      units.firstWhere((unit) => unit.id == id, orElse: () => orElse);
-
-  /// Returns the [AngleConverter] for this [id] or returns null
-  /// if there is no [AngleConverter] associated with this id.
-  static AngleConverter tryParse(String id) => parse(id, orElse: null);
+  static AngleConverter? parse(String id) => units.find(id);
 }

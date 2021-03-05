@@ -1,4 +1,5 @@
 import '../converter.dart';
+import '../util/extensions.dart';
 
 // ignore_for_file: public_member_api_docs
 
@@ -42,8 +43,7 @@ class NumberConverter extends StringConverter {
 class NumberBase {
   const NumberBase._();
 
-  static NumberConverter radix(int radix) =>
-      NumberConverter._('base_$radix', radix);
+  static NumberConverter radix(int radix) => NumberConverter._('base_$radix', radix);
 
   // Base Unit: Binary
   static const binary = NumberConverter._('binary', 2);
@@ -104,12 +104,7 @@ class NumberBase {
     base256,
   ];
 
-  /// Returns the [NumberConverter] for this [id] or throws a StateError
+  /// Returns the [NumberConverter] for this [id] or null
   /// if there is no [NumberConverter] associated with this id.
-  static NumberConverter parse(String id, {NumberConverter orElse}) =>
-      units.firstWhere((unit) => unit.id == id, orElse: () => orElse);
-
-  /// Returns the [NumberConverter] for this [id] or returns null
-  /// if there is no [NumberConverter] associated with this id.
-  static NumberConverter tryParse(String id) => parse(id, orElse: null);
+  static NumberConverter? parse(String id) => units.find(id);
 }

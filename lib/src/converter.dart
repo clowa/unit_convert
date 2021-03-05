@@ -17,7 +17,7 @@ Converter<T> from<T>(Converter<T> converter) => converter;
 /// Throws `ArgumentError` if its not possible to
 /// convert between the two units.
 double convert(Converter<num> from, Converter<num> to, num value) =>
-    from(to, value.toDouble());
+    from(to, value.toDouble()).toDouble();
 
 /// A custom conversion function.
 typedef ConversionFn = double Function(num value);
@@ -46,7 +46,7 @@ abstract class Converter<T> {
   /// - German (de)
   static set locale(String value) {
     if (translations.containsKey(value)) {
-      i18n = translations[value];
+      i18n = translations[value] as Map<String, dynamic>;
     } else if (value.contains('_')) {
       locale = value.split('_').first;
     }
@@ -59,7 +59,7 @@ abstract class Converter<T> {
   /// - English
   /// - German
   @visibleForTesting
-  static Map i18n = en;
+  static Map<String, dynamic> i18n = en;
 
   /// The id of the category of this unit.
   String get category;
@@ -78,8 +78,9 @@ abstract class Converter<T> {
 
   List<String> get _parts {
     final parts = i18n[category][id];
+
     if (parts is List) {
-      return parts;
+      return parts as List<String>;
     } else {
       return [parts];
     }
@@ -132,18 +133,18 @@ abstract class RatioConverter extends Converter<double> {
   final double ratio;
 
   /// A custom conversion function to convert from the base unit.
-  final ConversionFn forward;
+  final ConversionFn? forward;
 
   /// A custom conversion function to convert to the base unit.
-  final ConversionFn reverse;
+  final ConversionFn? reverse;
 
   /// Creates a numerical converter that can be expressed as a
   /// ratio to the base unit.
   const RatioConverter(
     String id, {
-    @required double r,
-    ConversionFn f,
-    ConversionFn b,
+    required double r,
+    ConversionFn? f,
+    ConversionFn? b,
   })  : ratio = r,
         forward = f,
         reverse = b,
@@ -151,8 +152,6 @@ abstract class RatioConverter extends Converter<double> {
 
   @override
   double to(Converter<double> other, double value) {
-    if (value == null) return null;
-
     final o = typeCheckConverter<RatioConverter>(other);
     final base = reverse?.call(value) ?? (value * ratio);
     return o.forward?.call(base) ?? (base / o.ratio);
@@ -173,16 +172,14 @@ abstract class CustomConverter extends Converter<double> {
   /// to base and from base conversions.
   const CustomConverter(
     String id, {
-    @required ConversionFn f,
-    @required ConversionFn r,
+    required ConversionFn f,
+    required ConversionFn r,
   })  : forward = f,
         reverse = r,
         super(id);
 
   @override
   double to(Converter<double> other, double value) {
-    if (value == null) return null;
-
     final o = typeCheckConverter<CustomConverter>(other);
     return o.forward(reverse(value));
   }

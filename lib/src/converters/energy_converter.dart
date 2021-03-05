@@ -1,4 +1,5 @@
 import '../converter.dart';
+import '../util/extensions.dart';
 
 // ignore_for_file: public_member_api_docs
 
@@ -58,12 +59,9 @@ class EnergyUnit {
   static const kilowattSecond = EnergyConverter._('kilowatt_second', 1000);
   static const wattSecond = EnergyConverter._('watt_second', 1);
 
-  static const megaelectronVolt =
-      EnergyConverter._('megaelectron_volt', 1.60217733E-13);
-  static const kiloelectronVolt =
-      EnergyConverter._('kiloelectron_volt', 1.60217733E-16);
-  static const electronVolt =
-      EnergyConverter._('electron_volt', 1.60217733E-19);
+  static const megaelectronVolt = EnergyConverter._('megaelectron_volt', 1.60217733E-13);
+  static const kiloelectronVolt = EnergyConverter._('kiloelectron_volt', 1.60217733E-16);
+  static const electronVolt = EnergyConverter._('electron_volt', 1.60217733E-19);
 
   static const horsepowerHour = EnergyConverter._('horsepower_hour', 2647795.5);
 
@@ -120,12 +118,7 @@ class EnergyUnit {
     ton,
   ];
 
-  /// Returns the [EnergyConverter] for this [id] or throws a StateError
+  /// Returns the [EnergyConverter] for this [id] or null
   /// if there is no [EnergyConverter] associated with this id.
-  static EnergyConverter parse(String id, {EnergyConverter orElse}) =>
-      units.firstWhere((unit) => unit.id == id, orElse: () => orElse);
-
-  /// Returns the [EnergyConverter] for this [id] or returns null
-  /// if there is no [EnergyConverter] associated with this id.
-  static EnergyConverter tryParse(String id) => parse(id, orElse: null);
+  static EnergyConverter? parse(String id) => units.find(id);
 }
