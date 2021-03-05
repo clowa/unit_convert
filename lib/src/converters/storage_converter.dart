@@ -1,4 +1,5 @@
 import '../converter.dart';
+import '../util/extensions.dart';
 
 // ignore_for_file: public_member_api_docs
 
@@ -65,14 +66,10 @@ class StorageUnit {
   static const mapmWord = StorageConverter._('mapm_word', 32.0);
 
   static const floppyDisk35DD = StorageConverter._('floppy_disk_35_dd', 5694.0);
-  static const floppyDisk35HD =
-      StorageConverter._('floppy_disk_35_hd', 11388.0);
-  static const floppyDisk35ED =
-      StorageConverter._('floppy_disk_35_ed', 22776.0);
-  static const floppyDisk525DD =
-      StorageConverter._('floppy_disk_525_dd', 2847.0);
-  static const floppyDisk525HD =
-      StorageConverter._('floppy_disk_525_hd', 9484.0);
+  static const floppyDisk35HD = StorageConverter._('floppy_disk_35_hd', 11388.0);
+  static const floppyDisk35ED = StorageConverter._('floppy_disk_35_ed', 22776.0);
+  static const floppyDisk525DD = StorageConverter._('floppy_disk_525_dd', 2847.0);
+  static const floppyDisk525HD = StorageConverter._('floppy_disk_525_hd', 9484.0);
 
   static const cd74Minute = StorageConverter._('cd_74_minute', 5320768);
   static const cd80Minute = StorageConverter._('cd_80_minute', 5752181.6172);
@@ -80,8 +77,7 @@ class StorageUnit {
   static const dvd = StorageConverter._('dvd', 39426457.6);
   static const dvd2Layer = StorageConverter._('dvd_2_layer', 71303168);
   static const dvd2Side = StorageConverter._('dvd_2_side', 78852915.2);
-  static const dvd2Layer2Side =
-      StorageConverter._('dvd_2_layer_2_side', 142606336);
+  static const dvd2Layer2Side = StorageConverter._('dvd_2_layer_2_side', 142606336);
 
   static const zip100 = StorageConverter._('zip_100', 784624.0);
   static const zip250 = StorageConverter._('zip_250', 1961560.0);
@@ -153,12 +149,7 @@ class StorageUnit {
     jaz2GB,
   ];
 
-  /// Returns the [StorageConverter] for this [id] or throws a StateError
+  /// Returns the [StorageConverter] for this [id] or null
   /// if there is no [StorageConverter] associated with this id.
-  static StorageConverter parse(String id, {StorageConverter orElse}) =>
-      units.firstWhere((unit) => unit.id == id, orElse: () => orElse);
-
-  /// Returns the [StorageConverter] for this [id] or returns null
-  /// if there is no [StorageConverter] associated with this id.
-  static StorageConverter tryParse(String id) => parse(id, orElse: null);
+  static StorageConverter? parse(String id) => units.find(id);
 }

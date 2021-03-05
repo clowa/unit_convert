@@ -1,4 +1,5 @@
 import '../converter.dart';
+import '../util/extensions.dart';
 
 // ignore_for_file: public_member_api_docs
 
@@ -24,8 +25,8 @@ class TemperatureUnit {
   // Common units
   static final kelvin = TemperatureConverter._(
     'kelvin',
-    (k) => k,
-    (k) => k,
+    (k) => k.toDouble(),
+    (k) => k.toDouble(),
   );
   static final celsius = TemperatureConverter._(
     'celsius',
@@ -66,12 +67,7 @@ class TemperatureUnit {
     triplePointOfWater
   ];
 
-  /// Returns the [TemperatureConverter] for this [id] or throws a StateError
+  /// Returns the [TemperatureConverter] for this [id] or null
   /// if there is no [TemperatureConverter] associated with this id.
-  static TemperatureConverter parse(String id, {TemperatureConverter orElse}) =>
-      units.firstWhere((unit) => unit.id == id, orElse: () => orElse);
-
-  /// Returns the [TemperatureConverter] for this [id] or returns null
-  /// if there is no [TemperatureConverter] associated with this id.
-  static TemperatureConverter tryParse(String id) => parse(id, orElse: null);
+  static TemperatureConverter? parse(String id) => units.find(id);
 }

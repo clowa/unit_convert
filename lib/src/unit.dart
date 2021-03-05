@@ -2,14 +2,19 @@ import 'converter.dart';
 
 /// Provides utillities to parse a unit id to its [Converter].
 abstract class Unit {
-  /// Returns the [Converter] for this [id] or throws a StateError
+  /// Returns the [Converter] for this [id] or null
   /// if there is no [Converter] associated with this id.
-  static Converter parse(String id, {Converter orElse}) =>
-      Units.values.firstWhere((unit) => unit.id == id, orElse: () => orElse);
-
-  /// Returns the [Converter] for this [id] or returns null
-  /// if there is no [Converter] associated with this id.
-  static Converter tryParse(String id) => parse(id, orElse: null);
+  static Converter? parse(String id, {Converter? orElse}) {
+    try {
+      return Units.values.firstWhere((unit) => unit.id == id);
+    } on StateError {
+      if (orElse != null) {
+        return orElse;
+      } else {
+        rethrow;
+      }
+    }
+  }
 }
 
 /// Provides utillities to work with [Converter]s.

@@ -1,4 +1,5 @@
 import '../converter.dart';
+import '../util/extensions.dart';
 
 // ignore_for_file: public_member_api_docs
 
@@ -51,16 +52,12 @@ class PowerUnit {
   static const attowatt = PowerConverter._('attowatt', 1E-18);
 
   static const horsepower = PowerConverter._('horsepower', 745.69987158);
-  static const horsepowerMetric =
-      PowerConverter._('horsepower_metric', 735.49875);
-  static const horsepowerElectric =
-      PowerConverter._('horsepower_electric', 735.49875);
+  static const horsepowerMetric = PowerConverter._('horsepower_metric', 735.49875);
+  static const horsepowerElectric = PowerConverter._('horsepower_electric', 735.49875);
   static const pferdestarke = PowerConverter._('pferdestarke', 735.49875);
 
-  static const kiloCaloriesPerHour =
-      PowerConverter._('kcal_hour', 1.1622222222);
-  static const kiloCaloriesPerMinute =
-      PowerConverter._('kcal_minute', 69.733333333);
+  static const kiloCaloriesPerHour = PowerConverter._('kcal_hour', 1.1622222222);
+  static const kiloCaloriesPerMinute = PowerConverter._('kcal_minute', 69.733333333);
   static const kiloCaloriesPerSecond = PowerConverter._('kcal_second', 4184);
   static const caloriesPerHour = PowerConverter._('cal_hour', 0.0011622222);
   static const caloriesPerMinute = PowerConverter._('cal_minute', 0.0697333333);
@@ -126,12 +123,7 @@ class PowerUnit {
     caloriesPerSecond,
   ];
 
-  /// Returns the [PowerConverter] for this [id] or throws a StateError
+  /// Returns the [PowerConverter] for this [id] or null
   /// if there is no [PowerConverter] associated with this id.
-  static PowerConverter parse(String id, {PowerConverter orElse}) =>
-      units.firstWhere((unit) => unit.id == id, orElse: () => orElse);
-
-  /// Returns the [PowerConverter] for this [id] or returns null
-  /// if there is no [PowerConverter] associated with this id.
-  static PowerConverter tryParse(String id) => parse(id, orElse: null);
+  static PowerConverter? parse(String id) => units.find(id);
 }
