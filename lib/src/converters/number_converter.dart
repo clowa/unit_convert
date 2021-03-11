@@ -43,7 +43,8 @@ class NumberConverter extends StringConverter {
 class NumberBase {
   const NumberBase._();
 
-  static NumberConverter radix(int radix) => NumberConverter._('base_$radix', radix);
+  static NumberConverter radix(int radix) =>
+      NumberConverter._('base_$radix', radix);
 
   // Base Unit: Binary
   static const binary = NumberConverter._('binary', 2);

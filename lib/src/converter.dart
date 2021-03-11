@@ -74,7 +74,7 @@ abstract class Converter<T> {
   String get symbol => _parts.last;
 
   /// Whether this unit has a symbol.
-  bool get hasSymbol => symbol != null && name != symbol;
+  bool get hasSymbol => name != symbol;
 
   List<String> get _parts {
     final parts = i18n[category][id];
@@ -174,7 +174,7 @@ abstract class CustomConverter extends Converter<double> {
     String id, {
     required ConversionFn f,
     required ConversionFn r,
-  })  : forward = f,
+  })   : forward = f,
         reverse = r,
         super(id);
 

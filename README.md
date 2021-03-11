@@ -7,7 +7,7 @@ A Dart unit converter to convert between numerous units easily.
 Add it to your `pubspec.yaml` file:
 ```yaml
 dependencies:
-  unit_convert: ^0.1.1
+  unit_convert: ^0.1.3
 ```
 Install packages from the command line
 ```
