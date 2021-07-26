@@ -64,8 +64,7 @@ class PressureUnit {
   static const petapascal = PressureConverter._('petapascal', 1E+10);
   static const exapascal = PressureConverter._('exapascal', 1E+13);
 
-  static const newtonSquareMeter =
-      PressureConverter._('newton_square_meter', 1E-5);
+  static const newtonSquareMeter = PressureConverter._('newton_square_meter', 1E-5);
   static const newtonSquareCentimeter =
       PressureConverter._('newton_square_centimeter', 0.1);
   static const newtonSquareMillimeter =
@@ -73,8 +72,7 @@ class PressureUnit {
   static const kilonewtonSquareMeter =
       PressureConverter._('kilonewton_square_meter', 0.01);
 
-  static const standardAtmosphere =
-      PressureConverter._('standard_atmosphere', 1.01325);
+  static const standardAtmosphere = PressureConverter._('standard_atmosphere', 1.01325);
   static const technicalAtmosphere =
       PressureConverter._('technical_atmosphere', 0.980665);
 
@@ -84,23 +82,17 @@ class PressureUnit {
       PressureConverter._('centimeter_mercury_0_deg', 0.0133322);
   static const millimeterMercury0Deg =
       PressureConverter._('millimeter_mercury_0_deg', 0.00133322);
-  static const inchMercury32Deg =
-      PressureConverter._('inch_mercury_32_deg', 0.0338638);
-  static const inchMercury60Deg =
-      PressureConverter._('inch_mercury_60_deg', 0.0337685);
+  static const inchMercury32Deg = PressureConverter._('inch_mercury_32_deg', 0.0338638);
+  static const inchMercury60Deg = PressureConverter._('inch_mercury_60_deg', 0.0337685);
 
   static const centimeterWater4Deg =
       PressureConverter._('centimeter_water_4_deg', 0.000980638);
   static const millimeterWater4Deg =
       PressureConverter._('millimeter_water_4_deg', 0.0000980638);
-  static const inchWater4Deg =
-      PressureConverter._('inch_water_4_deg', 0.00249082);
-  static const footWater4Deg =
-      PressureConverter._('foot_water_4_deg', 0.0298898);
-  static const inchWater60Deg =
-      PressureConverter._('inch_water_60_deg', 0.00248843);
-  static const footWater60Deg =
-      PressureConverter._('foot_water_60_deg', 0.02986116);
+  static const inchWater4Deg = PressureConverter._('inch_water_4_deg', 0.00249082);
+  static const footWater4Deg = PressureConverter._('foot_water_4_deg', 0.0298898);
+  static const inchWater60Deg = PressureConverter._('inch_water_60_deg', 0.00248843);
+  static const footWater60Deg = PressureConverter._('foot_water_60_deg', 0.02986116);
 
   static const common = [
     bar,
@@ -170,5 +162,5 @@ class PressureUnit {
 
   /// Returns the [PressureConverter] for this [id] or null
   /// if there is no [PressureConverter] associated with this id.
-  static PressureConverter? parse(String id) => units.find(id);
+  static PressureConverter? parse(String? id) => units.find(id);
 }

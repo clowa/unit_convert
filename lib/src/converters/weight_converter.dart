@@ -76,10 +76,8 @@ class WeightUnit {
   static const carat = WeightConverter._('carat', 0.2);
   static const grain = WeightConverter._('grain', 0.06479891);
 
-  static const hundredWeightUS =
-      WeightConverter._('hundredweight_us', 45359.237);
-  static const hundredWeightUK =
-      WeightConverter._('hundredweight_uk', 50802.34544);
+  static const hundredWeightUS = WeightConverter._('hundredweight_us', 45359.237);
+  static const hundredWeightUK = WeightConverter._('hundredweight_uk', 50802.34544);
   static const pennyweight = WeightConverter._('pennyweight', 1.55517384);
 
   static const quarterUS = WeightConverter._('quarter_us', 11339.80925);
@@ -88,16 +86,13 @@ class WeightUnit {
   static const stoneUK = WeightConverter._('stone_uk', 6350.29318);
 
   static const dalton = WeightConverter._('dalton', 1.66053E-24);
-  static const atomicMassUnit =
-      WeightConverter._('atomic_mass_unit', 1.660540199E-24);
+  static const atomicMassUnit = WeightConverter._('atomic_mass_unit', 1.660540199E-24);
   static const plankMass = WeightConverter._('plank_mass', 0.0000217671);
-  static const electronMass =
-      WeightConverter._('electron_mass', 9.109389699E-28);
+  static const electronMass = WeightConverter._('electron_mass', 9.109389699E-28);
   static const muonMass = WeightConverter._('muon_mass', 1.8835327E-25);
   static const protonMass = WeightConverter._('proton_mass', 1.672623099E-24);
   static const neutronMass = WeightConverter._('neutron_mass', 1.6749286E-24);
-  static const deuteronMass =
-      WeightConverter._('deuteron_mass', 3.343585999E-24);
+  static const deuteronMass = WeightConverter._('deuteron_mass', 3.343585999E-24);
 
   static const earthMass = WeightConverter._('earth_mass', 5.976E+27);
   static const sunMass = WeightConverter._('sun_mass', 2E+33);
@@ -181,5 +176,5 @@ class WeightUnit {
 
   /// Returns the [WeightConverter] for this [id] or null
   /// if there is no [WeightConverter] associated with this id.
-  static WeightConverter? parse(String id) => units.find(id);
+  static WeightConverter? parse(String? id) => units.find(id);
 }

@@ -91,5 +91,5 @@ class AreaUnit {
 
   /// Returns the [AreaConverter] for this [id] or null
   /// if there is no [AreaConverter] associated with this id.
-  static AreaConverter? parse(String id) => units.find(id);
+  static AreaConverter? parse(String? id) => units.find(id);
 }

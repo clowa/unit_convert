@@ -133,5 +133,5 @@ class ForceUnit {
 
   /// Returns the [ForceConverter] for this [id] or null
   /// if there is no [ForceConverter] associated with this id.
-  static ForceConverter? parse(String id) => units.find(id);
+  static ForceConverter? parse(String? id) => units.find(id);
 }

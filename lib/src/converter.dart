@@ -174,7 +174,7 @@ abstract class CustomConverter extends Converter<double> {
     String id, {
     required ConversionFn f,
     required ConversionFn r,
-  })   : forward = f,
+  })  : forward = f,
         reverse = r,
         super(id);
 

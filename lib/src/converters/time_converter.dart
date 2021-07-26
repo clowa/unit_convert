@@ -130,5 +130,5 @@ class TimeUnit {
 
   /// Returns the [TimeConverter] for this [id] or null
   /// if there is no [TimeConverter] associated with this id.
-  static TimeConverter? parse(String id) => units.find(id);
+  static TimeConverter? parse(String? id) => units.find(id);
 }

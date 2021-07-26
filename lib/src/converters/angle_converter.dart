@@ -58,5 +58,5 @@ class AngleUnit {
 
   /// Returns the [TemperatureConverter] for this [id] or null
   /// if there is no [TemperatureConverter] associated with this id.
-  static AngleConverter? parse(String id) => units.find(id);
+  static AngleConverter? parse(String? id) => units.find(id);
 }

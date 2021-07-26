@@ -4,7 +4,7 @@ import 'converter.dart';
 abstract class Unit {
   /// Returns the [Converter] for this [id] or null
   /// if there is no [Converter] associated with this id.
-  static Converter? parse(String id, {Converter? orElse}) {
+  static Converter? parse(String? id, {Converter? orElse}) {
     try {
       return Units.values.firstWhere((unit) => unit.id == id);
     } on StateError {

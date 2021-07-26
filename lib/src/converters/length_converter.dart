@@ -92,8 +92,7 @@ class LengthUnit {
   static const cubit = LengthConverter._('cubit', 45.72);
 
   // Physics/Chemistry
-  static const electronRadius =
-      LengthConverter._('electron_radius', 2.81794092E-13);
+  static const electronRadius = LengthConverter._('electron_radius', 2.81794092E-13);
   static const bohrRadius = LengthConverter._('bohr_radius', 5.29177249E-9);
   static const angstrom = LengthConverter._('angstrom', 1E-8);
   static const xUnit = LengthConverter._('x_unit', 1.002079999E-12);
@@ -105,10 +104,8 @@ class LengthUnit {
 
   static const earthEquatorialRadius =
       LengthConverter._('earth_equatorial_radius', 637816000);
-  static const earthPolarRadius =
-      LengthConverter._('earth_polar_radius', 635677700);
-  static const astronomicalUnit =
-      LengthConverter._('astronomical_unit', 14959787069100);
+  static const earthPolarRadius = LengthConverter._('earth_polar_radius', 635677700);
+  static const astronomicalUnit = LengthConverter._('astronomical_unit', 14959787069100);
   static const earthDistanceFromSun =
       LengthConverter._('earth_distance_from_sun', 14960000000000);
   static const sunsRadius = LengthConverter._('suns_radius', 69600000000);
@@ -204,5 +201,5 @@ class LengthUnit {
 
   /// Returns the [LengthConverter] for this [id] or null
   /// if there is no [LengthConverter] associated with this id.
-  static LengthConverter? parse(String id) => units.find(id);
+  static LengthConverter? parse(String? id) => units.find(id);
 }

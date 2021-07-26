@@ -23,5 +23,5 @@ extension ListExtension<T> on List<T> {
 }
 
 extension ListConverterExtensions<T extends Converter> on List<T> {
-  T? find(String id) => findOrNull((unit) => unit.id == id);
+  T? find(String? id) => id == null ? null : findOrNull((unit) => unit.id == id);
 }

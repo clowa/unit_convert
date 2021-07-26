@@ -69,5 +69,5 @@ class TemperatureUnit {
 
   /// Returns the [TemperatureConverter] for this [id] or null
   /// if there is no [TemperatureConverter] associated with this id.
-  static TemperatureConverter? parse(String id) => units.find(id);
+  static TemperatureConverter? parse(String? id) => units.find(id);
 }
